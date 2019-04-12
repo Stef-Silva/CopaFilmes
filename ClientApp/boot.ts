@@ -1,8 +1,11 @@
 import './css/site.css';
 import 'bootstrap';
+import ElementUi from 'element-ui';
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+
 Vue.use(VueRouter);
+Vue.use(ElementUi);
 
 const routes = [
     { path: '/', component: require('./components/home/home.vue.html') },

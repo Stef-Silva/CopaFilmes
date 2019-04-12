@@ -1,21 +1,22 @@
 <template>
     <div>
+        <el-button>Button</el-button>
         <h2>Filmes List</h2>
         <table v-if="forecasts.length" class="table">
                 <thead>
                     <tr>
-                        <th>Id</th>
+                        <th></th>
                         <th>Titulo</th>
                         <th>Ano</th>
-                        <th>Nota</th>
+                        <!--<th>Nota</th>-->
                     </tr>
                 </thead>
                 <tbody>
                     <tr v-for="item in forecasts">
-                        <td>{{ item.id }}</td>
+                        <td><input type="checkbox"></td>
                         <td>{{ item.titulo }}</td>
                         <td>{{ item.ano }}</td>
-                        <td>{{ item.nota }}</td>
+                        <!--<td>{{ item.nota }}</td>-->
                     </tr>
                 </tbody>
             </table>

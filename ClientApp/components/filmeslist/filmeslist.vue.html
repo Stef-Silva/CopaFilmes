@@ -1,0 +1,27 @@
+<template>
+    <div>
+        <h2>Filmes List</h2>
+        <table v-if="forecasts.length" class="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Titulo</th>
+                        <th>Ano</th>
+                        <th>Nota</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="item in forecasts">
+                        <td>{{ item.id }}</td>
+                        <td>{{ item.titulo }}</td>
+                        <td>{{ item.ano }}</td>
+                        <td>{{ item.nota }}</td>
+                    </tr>
+                </tbody>
+            </table>
+    
+            <p v-else><em>Loading...</em></p>
+    </div>
+    
+</template>
+<script src="./filmeslist.ts"></script>

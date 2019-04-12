@@ -1,6 +1,17 @@
 <template>
-    <div>
-        <el-button>Button</el-button>
+    <div>        
+        <el-button round style="float: right" type="primary" plain>Gerar meu Campeonato <i class="el-icon-refresh"></i></el-button>
+        <br><br><br>
+        <el-row :gutter="12">
+            <el-col v-for="(item, index) in forecasts" :key="index" :value="item.titulo" :span="6">
+                <el-card shadow="hover">
+                    <el-checkbox v-model="item.id" :label="item.titulo"></el-checkbox><br>
+                    {{ item.ano }}                                          
+                </el-card>
+            </el-col>                    
+        </el-row>  
+                
+        <!--<el-button>Button</el-button>
         <h2>Filmes List</h2>
         <table v-if="forecasts.length" class="table">
                 <thead>
@@ -8,7 +19,7 @@
                         <th></th>
                         <th>Titulo</th>
                         <th>Ano</th>
-                        <!--<th>Nota</th>-->
+                        <th>Nota</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -16,12 +27,12 @@
                         <td><input type="checkbox"></td>
                         <td>{{ item.titulo }}</td>
                         <td>{{ item.ano }}</td>
-                        <!--<td>{{ item.nota }}</td>-->
+                        <td>{{ item.nota }}</td>
                     </tr>
                 </tbody>
             </table>
     
-            <p v-else><em>Loading...</em></p>
+            <p v-else><em>Loading...</em></p>-->
     </div>
     
 </template>

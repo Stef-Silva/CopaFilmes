@@ -1,16 +1,17 @@
 <template>
     <div>        
-        <el-button round style="float: right" type="primary" plain>Gerar meu Campeonato <i class="el-icon-refresh"></i></el-button>
+        <el-button round style="float: right" type="primary" plain @click="sendFilmes">Gerar meu Campeonato <i class="el-icon-refresh"></i></el-button>
         <br><br><br>
+        <span>Selecionados: {{ filmes.length }} de 8</span> 
         <el-row :gutter="12">
             <el-col v-for="(item, index) in forecasts" :key="index" :value="item.titulo" :span="6">
                 <el-card shadow="hover">
-                    <el-checkbox v-model="item.id" :label="item.titulo"></el-checkbox><br>
+                    <el-checkbox v-model="filmes" :label="item.titulo +' - '+item.nota" :value="item.id">{{ item.titulo }}</el-checkbox><br>
                     {{ item.ano }}                                          
                 </el-card>
             </el-col>                    
         </el-row>  
-                
+       
         <!--<el-button>Button</el-button>
         <h2>Filmes List</h2>
         <table v-if="forecasts.length" class="table">

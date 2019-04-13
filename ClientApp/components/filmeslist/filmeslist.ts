@@ -33,7 +33,19 @@ export default class FilmesListComponent extends Vue {
             console.log('POST')
             console.log(this.filmes)
             console.log(this.filmes.length)
-        }        
+
+            console.log('vai fazer o post');
+            // Fazer o POST
+            axios.post('http://localhost:65332/campeonato/index')
+            .then(response => {
+                console.log(response)
+            })
+            .catch(function(error){
+                console.log(error)
+            })
+            console.log('Fez!Mas não sei se chega até aqui')
+        }
+        console.log('Fim do método')        
     }
     mounted() {
         /*fetch('')

@@ -56,6 +56,11 @@ namespace aspnetcorevue
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
 
+                routes.MapRoute(
+                    name: "campeonato",
+                    template: "{controller=Home}/{action=IndexFromBody}/{filmes}"                    
+                );              
+
                 routes.MapSpaFallbackRoute(
                     name: "spa-fallback",
                     defaults: new { controller = "Home", action = "Index" });

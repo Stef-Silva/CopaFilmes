@@ -56,6 +56,11 @@ export default class FilmesListComponent extends Vue {
             axios.post('http://localhost:65332/home/indexfrombody', JSON.stringify(this.filmesToSend), axiosConfig)
             .then(response => {
                 console.log(response)
+                this.filmes = [];
+                console.log(this.filmes)
+                console.log(typeof response)
+                this.filmes.push(response)
+                console.log(this.filmes)
             })
             .catch(function(error){
                 console.log(error)

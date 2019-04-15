@@ -5,13 +5,22 @@
         <span>Selecionados: {{ filmes.length }} de 8</span>   
         <br><br>     
         <el-row :gutter="12">
-            <el-col v-for="(item, index) in forecasts" :key="index" :value="item.titulo" :xs="24" :span="6" >
+            <el-col v-if="forecasts.length" v-for="(item, index) in forecasts" :key="index" :value="item.titulo" :xs="24" :span="6" >
                 <el-card shadow="hover">
                     <el-checkbox v-model="filmes" :label="item.id + ' - ' + item.titulo + ' - ' + item.ano + ' - ' + item.nota" :value="item.id">{{ item.titulo }}</el-checkbox><br>
                     <el-tag>{{ item.ano }}</el-tag>                                         
                 </el-card>
             </el-col>                    
-        </el-row>  
+        </el-row>
+        <div v-if="winners.length">
+            <el-row v-for="(winner, index) in winners" :key="index" :value="winner.titulo" :gutter="24">
+                <el-col :span="24">
+                    <el-card shadow="hover">                    
+                        <el-tag type="warning">{{ index+1 }}°  </el-tag>  {{ winner.titulo }}                                     
+                    </el-card>
+                </el-col>                    
+            </el-row>            
+        </div>  
        
         <!--<el-button>Button</el-button>
         <h2>Filmes List</h2>
@@ -31,10 +40,10 @@
                         <td>{{ item.ano }}</td>
                         <td>{{ item.nota }}</td>
                     </tr>
-                </tbody>
-            </table>
+                </tbody><div v-else><em>Loading...</em></div>
+            </table>-->
     
-            <p v-else><em>Loading...</em></p>-->
+            
     </div>
     
 </template>

@@ -3,6 +3,8 @@ import 'bootstrap';
 import ElementUi from 'element-ui';
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+//const EventBus = new Vue();
+//export default EventBus;
 
 Vue.use(VueRouter);
 Vue.use(ElementUi);

@@ -124,7 +124,7 @@ namespace aspnetcorevue.Controllers
                                     .ToList();
             }
             return Json(vFinal);         
-            //return Json(new { Result = String.Format("Vencedor item in list: '{0}'", vFinal[0].Titulo) });
+            //return Json(new { Result = String.Format("Vencedor item in list: ", vFinal) });
         }
 
         public static int SortFilmes(Filme filme1, Filme filme2)

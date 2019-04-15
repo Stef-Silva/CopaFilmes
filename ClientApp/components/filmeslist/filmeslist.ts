@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
 import axios from 'axios';
+const EventBus = new Vue();
 
 interface Filmes {
     id: string;
@@ -12,9 +13,11 @@ interface Filmes {
 
 @Component
 export default class FilmesListComponent extends Vue {
-    forecasts: Filmes[] = [];   
-    filmes:any[] = [];
-    filmesToSend:any[] = [];
+    EventBus:any;
+    forecasts: Filmes[] = []
+    filmes:any[] = []
+    filmesToSend:any[] = []
+    winners:any[] = []
 
     created(){
         axios.get('https://copadosfilmes.azurewebsites.net/api/filmes')
@@ -25,7 +28,7 @@ export default class FilmesListComponent extends Vue {
             console.log(error)
         })
     }    
-    sendFilmes(){        
+    sendFilmes(){
         if(this.filmes.length == 0){
             alert('Não há filmes selecionados!!!')        
         }else if(this.filmes.length > 8){
@@ -53,23 +56,55 @@ export default class FilmesListComponent extends Vue {
             }
 
             // POST
-            axios.post('http://localhost:65332/home/indexfrombody', JSON.stringify(this.filmesToSend), axiosConfig)
+            axios.post('http://localhost:5000/home/indexfrombody', JSON.stringify(this.filmesToSend), axiosConfig)
             .then(response => {
-                console.log(response)
+                var arrayJson = response.data
+                console.log(arrayJson)
+                var keys = Object.keys(response.data)
+                
+                var filme = arrayJson.reduce(function(filme: { [x: string]: any; }, dado: { titulo: string | number; nota: any; }){
+                    filme[dado.titulo] = dado.nota;
+                    
+                    return filme;
+                }, {})
+
+                console.log(filme)
+                this.winners.push(filme)
+                // Consultar https://pt.stackoverflow.com/questions/215335/converter-json-em-objeto
                 this.filmes = [];
-                console.log(this.filmes)
-                console.log(typeof response)
-                this.filmes.push(response)
-                console.log(this.filmes)
+                this.forecasts = [];
+                //console.log(this.filmes)
+                //console.log(typeof response)
+
+                //this.winners.push(filme)
+                //this.filmes.push(response)
+                /*var objFilme1 = {
+                    id: "abc",
+                    titulo: "Teste",
+                    ano: "2018",
+                    nota: 2.5
+                }
+                this.winners.push(objFilme1)
+                var objFilme2 = {
+                    id: "def",
+                    titulo: "Teste 2",
+                    ano: "2019",
+                    nota: 2.0
+                }*/
+                //this.winners.push(objFilme2)
+                console.log(this.winners)
+                
+                
             })
             .catch(function(error){
                 console.log(error)
             })            
         }                
-    }      
+    }         
     data(){
         return{            
-            filmes: []            
+            winners: []            
         }
     }  
+    
 }

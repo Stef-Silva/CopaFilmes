@@ -1,10 +1,11 @@
 <template>
     <div>        
         <el-button round style="float: right" type="primary" plain @click="sendFilmes">Gerar meu Campeonato <i class="el-icon-refresh"></i></el-button>
-        <br><br><br>
-        <span>Selecionados: {{ filmes.length }} de 8</span> 
+        <br><br>
+        <span>Selecionados: {{ filmes.length }} de 8</span>   
+        <br><br>     
         <el-row :gutter="12">
-            <el-col v-for="(item, index) in forecasts" :key="index" :value="item.titulo" :span="6">
+            <el-col v-for="(item, index) in forecasts" :key="index" :value="item.titulo" :xs="24" :span="6" >
                 <el-card shadow="hover">
                     <el-checkbox v-model="filmes" :label="item.id + ' - ' + item.titulo + ' - ' + item.ano + ' - ' + item.nota" :value="item.id">{{ item.titulo }}</el-checkbox><br>
                     <el-tag>{{ item.ano }}</el-tag>                                         

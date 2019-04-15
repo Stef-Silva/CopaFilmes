@@ -18,6 +18,7 @@ export default class FilmesListComponent extends Vue {
     filmes:any[] = []
     filmesToSend:any[] = []
     winners:any[] = []
+ 
 
     created(){
         axios.get('https://copadosfilmes.azurewebsites.net/api/filmes')
@@ -58,7 +59,29 @@ export default class FilmesListComponent extends Vue {
             // POST
             axios.post('http://localhost:5000/home/indexfrombody', JSON.stringify(this.filmesToSend), axiosConfig)
             .then(response => {
-                var arrayJson = response.data
+                console.log(response.data);
+                this.filmes = [];
+                this.forecasts = [];
+                
+                var json = JSON.stringify(response.data);
+                /*converter json para lista de objetos*/
+                var objs = JSON.parse(json);
+
+                console.log(this.winners.length);
+
+                for (let index = 0; index < objs.length; index++) {
+                    const element = objs[index];
+                    console.log(element);
+                    this.winners.push(element)
+                    /*var filme = {
+
+                    }*/
+                    
+                }
+                console.log(this.winners.length)
+                
+
+                /*var arrayJson = response.data
                 console.log(arrayJson)
                 var keys = Object.keys(response.data)
                 
@@ -92,7 +115,7 @@ export default class FilmesListComponent extends Vue {
                     nota: 2.0
                 }*/
                 //this.winners.push(objFilme2)
-                console.log(this.winners)
+                //console.log(this.winners)
                 
                 
             })

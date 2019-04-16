@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/aspnetcorevue.csproj"
+                "${workspaceFolder}/CopaFilmes.csproj"
             ],
             "problemMatcher": "$tsc"
         },
@@ -17,7 +17,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/aspnetcorevue.csproj"
+                "${workspaceFolder}/CopaFilmes.csproj"
             ],
             "problemMatcher": "$tsc"
         },
@@ -28,7 +28,7 @@
             "args": [
                 "watch",
                 "run",
-                "${workspaceFolder}/aspnetcorevue.csproj"
+                "${workspaceFolder}/CopaFilmes.csproj"
             ],
             "problemMatcher": "$tsc"
         }

@@ -123,8 +123,7 @@ namespace aspnetcorevue.Controllers
                                     .Where(y=>y.Count>0)
                                     .ToList();
             }
-            return Json(vFinal);         
-            //return Json(new { Result = String.Format("Vencedor item in list: ", vFinal) });
+            return Json(vFinal);                     
         }
 
         public static int SortFilmes(Filme filme1, Filme filme2)

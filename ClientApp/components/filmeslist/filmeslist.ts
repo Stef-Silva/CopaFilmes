@@ -70,64 +70,19 @@ export default class FilmesListComponent extends Vue {
                 console.log(this.winners.length);
 
                 for (let index = 0; index < objs.length; index++) {
-                    const element = objs[index];
+                    const element = objs[index]
                     console.log(element);
-                    this.winners.push(element)
-                    /*var filme = {
-
-                    }*/
+                    this.winners.push(element)                   
                     
                 }
-                console.log(this.winners.length)
-                
+                console.log(this.winners.length)             
 
-                /*var arrayJson = response.data
-                console.log(arrayJson)
-                var keys = Object.keys(response.data)
-                
-                var filme = arrayJson.reduce(function(filme: { [x: string]: any; }, dado: { titulo: string | number; nota: any; }){
-                    filme[dado.titulo] = dado.nota;
-                    
-                    return filme;
-                }, {})
-
-                console.log(filme)
-                this.winners.push(filme)
-                // Consultar https://pt.stackoverflow.com/questions/215335/converter-json-em-objeto
-                this.filmes = [];
-                this.forecasts = [];
-                //console.log(this.filmes)
-                //console.log(typeof response)
-
-                //this.winners.push(filme)
-                //this.filmes.push(response)
-                /*var objFilme1 = {
-                    id: "abc",
-                    titulo: "Teste",
-                    ano: "2018",
-                    nota: 2.5
-                }
-                this.winners.push(objFilme1)
-                var objFilme2 = {
-                    id: "def",
-                    titulo: "Teste 2",
-                    ano: "2019",
-                    nota: 2.0
-                }*/
-                //this.winners.push(objFilme2)
-                //console.log(this.winners)
-                
-                
             })
             .catch(function(error){
                 console.log(error)
             })            
         }                
     }         
-    data(){
-        return{            
-            winners: []            
-        }
-    }  
+      
     
 }

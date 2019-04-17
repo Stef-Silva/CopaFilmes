@@ -13,6 +13,12 @@ namespace aspnetcorevue.Controllers
         {
             return View();
         }
+        public static int Add(int x, int y)
+        {
+            return x + y;
+        }
+        
+
         [HttpPost]        
         public IActionResult IndexFromBody([FromBody]List<Filme> filmes){ 
             // Cria array pra colocar os vencedores da primeira disputa 4 filmes

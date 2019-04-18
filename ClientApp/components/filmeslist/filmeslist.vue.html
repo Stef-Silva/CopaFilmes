@@ -1,19 +1,22 @@
 <template>
     <div>
-            <div>  
-                    <el-row :gutter="12">
-                        <el-col :span="24">
-                            <el-card shadow="never">
-                                    <h1>Campeonato de Filmes</h1>
-                                    <h3 v-if="forecasts.length">FASE DE SELEÇÃO</h3>
-                                    <h3 v-else="winners.length">RESULTADO FINAL</h3>
-                                    <h4 v-if="forecasts.length">Selecione os 8 filmes que você deseja que participem da competição e depois pressione o botão "<em>Gerar meu Campeonato</em>".</h4>
-                                    <h3 v-else="winners.length">Veja o resultado final do Campeonato de filmes de forma simples e rápida</h3>
-                            </el-card>
-                        </el-col>      
-                    </el-row>
-                    <br> 
-                </div>    
+        <div>  
+            <el-row :gutter="12">
+                <el-col :span="24">
+                    <el-card shadow="never">
+                        <h1>Campeonato de Filmes</h1>
+                            <div v-if="forecasts.length">
+                                <h3>FASE DE SELEÇÃO</h3>
+                                <h4>Selecione os 8 filmes que você deseja que participem da competição e depois pressione o botão "<em>Gerar meu Campeonato</em>".</h4>
+                            </div>
+                            <div v-else-if="winners.length">
+                                <h3>RESULTADO FINAL</h3>                                    
+                                <h3>Veja o resultado final do Campeonato de filmes de forma simples e rápida</h3>
+                            </div>                                    
+                    </el-card>
+                </el-col>      
+            </el-row><br> 
+        </div>    
         <el-button v-if="forecasts.length" round style="float: right" type="primary" plain @click="sendFilmes">Gerar meu Campeonato <i class="el-icon-refresh"></i></el-button>
         <el-button v-else="winners.length" round style="float: right" type="primary" disabled>Gerar meu Campeonato <i class="el-icon-refresh"></i></el-button>
         <br><br>
@@ -35,31 +38,7 @@
                     </el-card>
                 </el-col>                    
             </el-row>            
-        </div>  
-       
-        <!--<el-button>Button</el-button>
-        <h2>Filmes List</h2>
-        <table v-if="forecasts.length" class="table">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>Titulo</th>
-                        <th>Ano</th>
-                        <th>Nota</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="item in forecasts">
-                        <td><input type="checkbox"></td>
-                        <td>{{ item.titulo }}</td>
-                        <td>{{ item.ano }}</td>
-                        <td>{{ item.nota }}</td>
-                    </tr>
-                </tbody><div v-else><em>Loading...</em></div>
-            </table>-->
-    
-            
-    </div>
-    
+        </div>             
+    </div>    
 </template>
 <script src="./filmeslist.ts"></script>

@@ -13,11 +13,12 @@ namespace aspnetcorevue.Controllers
         {
             return View();
         }
-        public static int Add(int x, int y)
+
+        //Teste xUnit :P
+        public static int Test(int x, int y)
         {
             return x + y;
-        }
-        
+        }        
 
         [HttpPost]        
         public IActionResult IndexFromBody([FromBody]List<Filme> filmes){ 
@@ -33,9 +34,7 @@ namespace aspnetcorevue.Controllers
                 foreach(var filme in filmes)
                 {
                     Console.WriteLine(filme.Titulo);                    
-                }
-
-                
+                }                
 
                 // Ordena por ordem alfabética os filmes
                 Console.WriteLine("#### --- Ordenando os filmes em Ordem Alfabética... --- ####");

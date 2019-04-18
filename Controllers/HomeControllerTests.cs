@@ -7,7 +7,7 @@ public class HomeControllerTests
     [Fact]
     public void PassingAddTest()
     {
-        Assert.Equal(4, HomeController.Add(2,2));
+        Assert.Equal(4, HomeController.Test(2,2));
     }
    
 }

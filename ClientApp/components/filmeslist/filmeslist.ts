@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
 import axios from 'axios';
-const EventBus = new Vue();
 
 interface Filmes {
     id: string;
@@ -17,8 +16,7 @@ export default class FilmesListComponent extends Vue {
     forecasts: Filmes[] = []
     filmes:any[] = []
     filmesToSend:any[] = []
-    winners:any[] = []
- 
+    winners:any[] = [] 
 
     created(){
         axios.get('https://copadosfilmes.azurewebsites.net/api/filmes')
@@ -55,7 +53,7 @@ export default class FilmesListComponent extends Vue {
                     "Access-Control-Allow-Origin": "*",
                 }
             }
-
+            
             // POST
             axios.post('http://localhost:5000/home/indexfrombody', JSON.stringify(this.filmesToSend), axiosConfig)
             .then(response => {
@@ -71,18 +69,14 @@ export default class FilmesListComponent extends Vue {
 
                 for (let index = 0; index < objs.length; index++) {
                     const element = objs[index]
-                    console.log(element);
-                    this.winners.push(element)                   
-                    
+                    console.log(element)
+                    this.winners.push(element)                    
                 }
-                console.log(this.winners.length)             
-
+                console.log(this.winners.length)
             })
             .catch(function(error){
                 console.log(error)
             })            
         }                
-    }         
-      
-    
+    }  
 }
